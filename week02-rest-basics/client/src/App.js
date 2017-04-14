@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import 'whatwg-fetch';
+//import 'whatwg-fetch';
+import mocks from './mocks';
+
 
 class App extends Component {
   constructor() {
     super();
       this.state = {
           file: 'Get Nine Result will be placed here.',
-          foo: 'waiting for express server'
+          foo: 'waiting for express server',
+          nine: '0'
       };
   }
-  bar=() =>{
-      //this.setState({foo: '23'});
+  getNine = () => {
+      this.setState=({nine:'9'});
+  };
+
+  getFoo=() =>{
+      //this.setState({foo: )23'});
       const that = this;
-      fetch('/api/foo')
+      mocks.fetch('/api/foo')
           .then(function(response) {
               return response.json();
           }).then(function(json) {
@@ -32,12 +39,16 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          state.foo: {this.state.foo}
+            state.foo: {this.state.foo}
         </p>
-          <p>
+          <p className="App-intro">
               state.file: {this.state.file}
           </p>
-          <button onClick={this.bar}>Click Me</button>
+          <p className="App-intro">
+              state.nine: {this.state.nine}
+          </p>
+          <button className='getFoo' onClick={this.getFoo}>get Foo</button>
+          <button className='getNine' onClick={this.getNine}>Get Nine</button>
       </div>
     );
   }
