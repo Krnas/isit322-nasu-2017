@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './25452.svg';
 import './App.css';
 //import 'whatwg-fetch';
 import mocks from './mocks';
@@ -11,12 +11,17 @@ class App extends Component {
       this.state = {
           file: 'Get Nine Result will be placed here.',
           foo: 'waiting for express server',
-          nine: '0'
+          nine: '0',
+          eight: '0'
       };
   }
   getNine = () => {
       this.setState=({nine:'9'});
   };
+
+    getEight = () => {
+        this.setState({eight: '8'});
+    };
 
   getFoo=() =>{
       //this.setState({foo: )23'});
@@ -49,6 +54,7 @@ class App extends Component {
           </p>
           <button className='getFoo' onClick={this.getFoo}>get Foo</button>
           <button className='getNine' onClick={this.getNine}>Get Nine</button>
+          <button className="getEight" onClick={this.getEight}>Get Eight</button>
       </div>
     );
   }

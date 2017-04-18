@@ -1,19 +1,22 @@
-class mocks {
-    fetch() {
-        this.setState({foo: "bar"});
-        return {
-            then: function (foo, bar) {
-                return {
-                    then: function () {
-                        return {
-                            catch: function () {
+var fetch = function(parentThis) {
+    parentThis.setState({
+        foo: 'bar',
+        file: 'api.js'
+    });
 
-                            }
+    return {
+        then: function() {
+            return {
+                then: function() {
+                    return {
+                        catch: function() {
+
                         }
                     }
                 }
             }
         }
     }
-}
-export default App;
+};
+
+module.exports.fetch = fetch;
