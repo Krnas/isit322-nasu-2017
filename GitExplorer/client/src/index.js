@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import App from './components/GetFoo';
 import Header from './components/Header';
 import SmallNumbers from './components/SmallNumbers';
-import './index.css';
+import './css/index.css';
 
 ReactDOM.render(
     <div>
