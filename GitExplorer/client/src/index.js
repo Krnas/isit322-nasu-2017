@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/GetFoo';
+import GetFoo from './components/GetFoo';
 import Header from './components/Header';
 import SmallNumbers from './components/SmallNumbers';
 import './css/index.css';
@@ -8,7 +8,7 @@ import './css/index.css';
 ReactDOM.render(
     <div>
     <Header/>
-  <App />
+  <GetFoo />
         <SmallNumbers/>
     </div>,
   document.getElementById('root')

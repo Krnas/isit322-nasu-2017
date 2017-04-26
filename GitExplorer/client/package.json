@@ -2,10 +2,11 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:30026",
   "dependencies": {
+    "enzyme": "^2.8.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "request": "^2.81.0",
     "whatwg-fetch": "^2.0.2"
   },
   "devDependencies": {
