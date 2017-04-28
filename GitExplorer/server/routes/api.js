@@ -3,7 +3,7 @@ var router = express.Router();
 var request = require('request');
 
 /* GET home page. */
-router.get('/foo', function(req, res, next) {
+router.get('/foo', function(req, response, next) {
     var message = {
         'result': 'success',
         'foo': 'bar',
@@ -16,7 +16,7 @@ router.get('/foo', function(req, res, next) {
 
 router.get('/user', function(req, res, next) {
     var options = {
-        url: 'https://api.github.com/users/charliecalvert',
+        url: 'https://github.com/Krnas/isit322-nasu-2017.git',
         headers: {
             'User-Agent': 'request'
         }
