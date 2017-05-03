@@ -1,11 +1,11 @@
 import React from 'react';
-
 import {mount} from 'enzyme';
 import GetUserInfo from '../components/GetUserInfo';
 import ElfDebug from '../ElfDebug';
 const elfDebug = new ElfDebug(false);
 
 describe('My get user info test', function () {
+    const showData = false;
 
     let getFirst = function(wrapper, element) {
         const paragraphData= wrapper.find(element).first().debug();
