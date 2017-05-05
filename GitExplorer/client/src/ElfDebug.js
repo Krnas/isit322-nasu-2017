@@ -1,32 +1,39 @@
-/**
- * Created by bcuser on 5/2/17.
- */
-import React from 'react';
-
-
 export default class ElfDebug {
-    constructor(showInit) {
-        this.showData = showInit;
+    constructor(showData=false, callerName = '') {
+        this.showData = showData;
+        this.callerName = callerName + ':\n';
+    }
+
+    display(value) {
+        console.log(this.callerName + value)
     }
 
     getFirst(wrapper, element) {
-        if (showData) {
+        if (this.showData) {
             const paragraphData = wrapper.find(element).first().debug();
-            console.log(paragraphData);
+            this.display(paragraphData);
         }
-        getLast(wrapper, element)
-        {
-            if (this.showData) {
-                const paragraphData = wrapper.find(element).last().debug();
-                console.log(paragraphData);
-            }
+    }
+
+    getLast(wrapper, element) {
+        if (this.showData) {
+            const paragraphData = wrapper.find(element).last().debug();
+            this.display(this.callerName + paragraphData);
         }
-        getAll(wrapper, element)
-        {
-            if (showData) {
-                const paragraphData = wrapper.find(element).debug();
-                console.log(paragraphData);
-            }
+
+    }
+
+    getAll(wrapper, element) {
+        if (this.showData) {
+            const paragraphData = wrapper.find(element).debug();
+            this.display(paragraphData);
+        }
+    }
+
+    getIndex(wrapper, index) {
+        if (this.showData) {
+            var paragraphData = wrapper.find('form').childAt(index).debug();
+            this.display(paragraphData);
         }
     }
 }

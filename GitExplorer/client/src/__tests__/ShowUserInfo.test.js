@@ -10,7 +10,7 @@ describe('My get user info test', function () {
     beforeEach(function() {
         gitUser = {
             login: 'login',
-            avarar_url: 'avatar'
+            avatar_url: 'avatar'
         }
     });
 
