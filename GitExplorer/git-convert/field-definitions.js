@@ -39,5 +39,8 @@ export default [
         label: 'Followers URL',
         type: types[DEFAULT],
         sample: 'followersUrl' + unknown
-    }
+    },
+    <ElfElements {...field}
+                 value={this.props.gitUser[field.id]}
+                 onChange={this.props.onChange}/>
 ]
