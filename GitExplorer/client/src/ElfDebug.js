@@ -1,39 +1,55 @@
-export default class ElfDebug {
+export default class ElfDebugEnzyme {
+
+    /**
+     * @param showData: Whether or not to display output
+     *
+     * @param callerName: Pass in the name of the class that is
+     * using this debug tool. That way, each message written to
+     * the console includes the name of the class that is
+     * requesting to see the output.
+     */
     constructor(showData=false, callerName = '') {
         this.showData = showData;
         this.callerName = callerName + ':\n';
     }
 
     display(value) {
-        console.log(this.callerName + value)
+        console.log(this.callerName + value);
     }
 
-    getFirst(wrapper, element) {
-        if (this.showData) {
-            const paragraphData = wrapper.find(element).first().debug();
+    getAll(wrapper, showMe) {
+        if (this.showData || showMe) {
+            const paragraphData = wrapper.debug();
             this.display(paragraphData);
         }
     }
 
-    getLast(wrapper, element) {
-        if (this.showData) {
-            const paragraphData = wrapper.find(element).last().debug();
-            this.display(this.callerName + paragraphData);
-        }
-
-    }
-
-    getAll(wrapper, element) {
-        if (this.showData) {
+    getElement(wrapper, element, showMe) {
+        if (this.showData || showMe) {
             const paragraphData = wrapper.find(element).debug();
             this.display(paragraphData);
         }
     }
 
-    getIndex(wrapper, index) {
-        if (this.showData) {
-            var paragraphData = wrapper.find('form').childAt(index).debug();
+    getFirst(wrapper, element, showMe) {
+        if (this.showData || showMe) {
+            const paragraphData = wrapper.find(element).first().debug();
             this.display(paragraphData);
         }
+    }
+
+    getIndex(wrapper, element, index, showMe) {
+        if (this.showData || showMe) {
+            var paragraphData = wrapper.find(element).childAt(index).debug();
+            this.display(paragraphData);
+        }
+    }
+
+    getLast(wrapper, element, showMe) {
+        if (this.showData || showMe) {
+            const paragraphData = wrapper.find(element).last().debug();
+            this.display(this.callerName + paragraphData);
+        }
+
     }
 }

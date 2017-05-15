@@ -73,7 +73,7 @@ router.get('/gist-test', function (request, response) {
         response.status(200).send({'result': retrievedGist});
         // do interesting things
     }).catch(function (err) {
-        console.log('Promise rejected',err, bar);
+        console.log('Promise rejected',err);
         console.log('Bar', bar);
         response.status(500).send({'result': err});
     });
