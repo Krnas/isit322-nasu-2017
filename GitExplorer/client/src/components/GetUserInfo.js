@@ -9,16 +9,16 @@ import fieldDefinitions from '../../../git-convert/field-definitions';
 class GetUserInfo extends Component {
     constructor() {
         super();
-        /*const tempGitUser = {};
+        const tempGitUser = {};
         for (let field of fieldDefinitions) {
             tempGitUser[field.id] = field.sample;
         }
         this.state = {
             gitUser: tempGitUser
-        };*/
+        };
 
     }
-/*
+
     fetchUser = (event) => {
 
         const that = this;
@@ -38,7 +38,7 @@ class GetUserInfo extends Component {
             logger.log('parsing failed', ex);
         });
         event.preventDefault();
-    };*/
+    };
 
     render() {
         return (
