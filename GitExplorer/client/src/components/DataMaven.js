@@ -79,7 +79,8 @@ fetchGist = (event) => {
 };
 
 
-render() {
+render()
+{
     logger.log('DATA MAVEN RENDER');
     return (
 
@@ -114,5 +115,6 @@ render() {
         </Router>
     );
 }
+
 
 export default DataMaven;
