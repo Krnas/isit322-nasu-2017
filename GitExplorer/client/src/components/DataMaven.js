@@ -35,15 +35,15 @@ class DataMaven extends Component {
         logger.log('GetUserInfo constructor called');
     };
 
-}
+
 
 fetchUser = (event) => {
 
     const that = this;
     fetch('/api/user')
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
-        }).then(function (json) {
+        }).then(function(json) {
         logger.log('parsed json', json);
         const gitUser = JSON.parse(json.body);
         that.setState({
@@ -52,7 +52,7 @@ fetchUser = (event) => {
 
         var body = JSON.parse(json.body);
         that.setState({gitUser: body});
-    }).catch(function (ex) {
+    }).catch(function(ex) {
         logger.log('parsing failed', ex);
     });
     event.preventDefault();
@@ -63,58 +63,58 @@ fetchGist = (event) => {
     logger.log('fetch gist called');
     const that = this;
     fetch('/api/gist-test')
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
-        }).then(function (json) {
+        }).then(function(json) {
         const gitGist = json.result;
         that.setState({
             gitUser: gitGist
         });
         /*var body = JSON.parse(json.body);
          that.setState({gitUser: body});*/
-    }).catch(function (ex) {
+    }).catch(function(ex) {
         logger.log('parsing failed', ex);
     });
     event.preventDefault();
 };
 
 
-render()
-{
+render() {
     logger.log('DATA MAVEN RENDER');
-    return (
 
-        <Router>
-            <div>
-                <ElfHeader/>
-                <Route exact path='/'
-                       render={(props) => (
-                           <GetUserInfo {...props}
-                                        fields={fieldDefinitions}
-                                        gitUser={this.state.gitUser}
-                                        onChange={this.fetchUser}/>
-                       )}
-                />
-                <Route path='/get-foo' component={GetFoo}/>
-                <Route path='/show-new-gist'
-                       render={(props) => (
-                           <ShowNewGist {...props}
-                                        gitGist={this.state.gitGist}
-                                        fetchGist={this.fetchGist}
-                           />
-                       )}
-                />
-                <Route path='/get-numbers'
-                       render={(props) => (
-                           <SmallNumbers {...props}
-                                         numbers={numbersInit}/>
-                       )}
-                />
-            </div>
+        return (
 
-        </Router>
-    );
+            <Router>
+                <div>
+                    <ElfHeader/>
+                    <Route exact path='/'
+                           render={(props) => (
+                               <GetUserInfo {...props}
+                                            fields={fieldDefinitions}
+                                            gitUser={this.state.gitUser}
+                                            onChange={this.fetchUser}/>
+                           )}
+                    />
+                    <Route path='/get-foo' component={GetFoo}/>
+                    <Route path='/show-new-gist'
+                           render={(props) => (
+                               <ShowNewGist {...props}
+                                            gitGist={this.state.gitGist}
+                                            fetchGist={this.fetchGist}
+                               />
+                           )}
+                    />
+                    <Route path='/get-numbers'
+                           render={(props) => (
+                               <SmallNumbers {...props}
+                                             numbers={numbersInit}/>
+                           )}
+                    />
+                </div>
+
+            </Router>
+        );
+    }
 }
-
 
 export default DataMaven;

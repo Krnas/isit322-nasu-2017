@@ -4,7 +4,7 @@ import DataMaven from '../components/DataMaven';
 import ElfDebug from '../ElfDebug';
 const elfDebug = new ElfDebug(false);
 
-describe('My get user info test', function () {
+describe('My get user info test', function() {
     //const showData = false;
 
     it('renders without crashing', () => {
@@ -14,14 +14,14 @@ describe('My get user info test', function () {
 
     it('renders default message for state.userLogin', () => {
         const wrapper = mount(<DataMaven/>);
-        const inputElement = <import value="login-unknown"/>;
+        const inputElement = <import value='login-unknown'/>;
         elfShow.getFirst(wrapper, 'input');
         expect(wrapper.containtsMatchingElement(inputElement)).toEqual(true);
     });
     function getDefault(id, value) {
         it('renders default login data', () => {
             const wrapper = mount(<DataMaven />);
-            const nineSign = <p className="ElfFormParagraph" id={id}>{value}</p>;
+            const nineSign = <p className='ElfFormParagraph' id={id}>{value}</p>;
             elfDebug.getFirst(wrapper, 'p');
             expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
 
@@ -35,7 +35,7 @@ describe('My get user info test', function () {
 
     it('renders button click message', () => {
         const wrapper = mount(<DataMaven />);
-        const nineSign = <p className="ElfFormParagraph">Robin Dudette</p>;
+        const nineSign = <p className='ElfFormParagraph'>Robin Dudette</p>;
         wrapper.find('button#getUser').simulate('click');
         elfDebug.getIndex(wrapper, 1);
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
@@ -45,4 +45,4 @@ describe('My get user info test', function () {
     it('renders default login data', () => {
         getDefault('avatar_url', 'aiunknown');
     });
-});
+})();
