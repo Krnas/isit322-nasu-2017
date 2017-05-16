@@ -7,11 +7,10 @@ const elfDebug = new ElfDebug(false);
 describe('My get user info test', function () {
     const showData = false;
 
-    // let getFirst = function(wrapper, element) {
-    //     const paragraphData= wrapper.find(element).first().debug();
-    //     console.log(paragraphData);
-    //
-    // };
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<GetUserInfo />, div);
+    });
     function getDefault(id, value) {
         it('renders default login data', () => {
             const wrapper = mount(<DataMaven />);
