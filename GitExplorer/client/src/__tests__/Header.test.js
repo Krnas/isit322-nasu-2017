@@ -17,4 +17,5 @@ describe('My header test', function() {
         expect(wrapper.containsMatchingElement(welcome)).toEqual(true);
 
     });
+
 })();

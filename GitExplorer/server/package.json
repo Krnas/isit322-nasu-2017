@@ -17,6 +17,7 @@
     "request": "^2.81.0",
     "serve-favicon": "~2.4.2"
   },
+
   "devDependencies": {
     "grunt": "~1.0.1",
     "grunt-contrib-clean": "^1.0.0",

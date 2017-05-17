@@ -49,8 +49,8 @@ router.get('/gist-test', function (request, response) {
         public: true,
         description: 'My first gist',
         files: {
-            'file1.txt': {
-                content: 'Arent three gists great!'
+            "file1.txt": {
+                content: "Aren't three gists great!"
             }
         }
     }).then(function({data}) {
@@ -69,4 +69,5 @@ router.get('/gist-test', function (request, response) {
     });
 });
 
-module.exports = router();
+
+module.exports = router;

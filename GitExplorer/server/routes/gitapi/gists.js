@@ -1,28 +1,11 @@
+/**
+ * Created by bcuser on 5/16/17.
+ */
 var express = require('express');
 var router = express.Router();
 var request = require('request');
 var GitHub = require('github-api');
 /* GET home page. */
-
-router.get('/user', function(req, res, next) {
-    var options = {
-        url: 'https://github.com/Krnas/isit322-nasu-2017.git',
-        headers: {
-            'User-Agent': 'request'
-        }
-    };
-
-    request(options, function(error, response, body) {
-        // Print the error if one occurred
-        console.log('error:', error);
-        // Print the response status code if a response was received
-        console.log('statusCode:', response && response.statusCode);
-        // Print the HTML for the Google homepage.
-        console.log('body:', body);
-        res.send({error: error, response: response, body: body});
-    });
-
-});
 
 let getGitHub = function() {
     let gh;
@@ -39,7 +22,7 @@ let getGitHub = function() {
     return gh;
 };
 
-router.get('/gist-test', function (request, response) {
+router.get('/gist-test', function(request, response) {
 
 
 // unauthenticated client
@@ -69,4 +52,26 @@ router.get('/gist-test', function (request, response) {
     });
 });
 
+rounter.get('/get-gist-list', function(request, response) {
+    let gh = getGitHub();
+    const me = gh.getUser();
+    console.log('ME', me);
+    me.listGists(
+    ).then(function({gists}) {
+        console.log('USER PROMISE', gists);
+        const results = gists.map(function(gist) {
+            return {
+                url: gist.url,
+                html_url: gist.html_url
+            };
+        });
+        response.status(200).send({
+            //'count': results.length,
+            'result': results
+        });
+    }).catch(function(err) {
+        console.log('USER Promise Rejected', err);
+        response.status(500).send({'result': err});
+    });
+});
 module.exports = router();

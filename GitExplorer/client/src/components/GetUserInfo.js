@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ShowUserInfo from './ShowUserInfo';
-import fieldDefinitions from '../../../git-convert/field-definitions';
+import fieldDefinitions from '/../git-convert/field-definitions';
 //var fetch = require('../mocks').fetch;
 
 class GetUserInfo extends Component {
