@@ -32,6 +32,12 @@ Date:   Mon May 15 23:53:08 2017 -0700
 
 My comments are in a file called **CharlieCommentsMidterm** in the **charlie-midterm** branch of your repository:
 
+https://github.com/Krnas/isit322-nasu-2017/blob/charlie-midterm/CharlieCommentsMidterm.md
 
+Please spend a lot of time scrolling up and down through the diffs shown here:
+
+https://github.com/Krnas/isit322-nasu-2017/commit/88fab146446d6098e7bb801f7866bece76680df7
+
+Once you can start to read them, then apply them, one by one to your code, or pick some other strategy to fix your code. When you are done, resubmit.
 
 And also attached, but easier to read through the above link to your repository.
