@@ -3,23 +3,28 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ShowUserInfo from './ShowUserInfo';
-import fieldDefinitions from '../../../git-convert/field-definitions';
+import fieldDefinitions from '../field-definitions';
 //var fetch = require('../mocks').fetch;
+import ElfLogger from './ElfLogger';
+const logger = new ElfLogger(false);
+
 
 class GetUserInfo extends Component {
-    constructor() {
-        super();
-        const tempGitUser = {};
+    // TODO: Be sure to pass props to super
+    constructor(props) {
+        super(props);
+        console.log(this.props);
+      /*  const tempGitUser = {};
         for (let field of fieldDefinitions) {
             tempGitUser[field.id] = field.sample;
         }
         this.state = {
             gitUser: tempGitUser
-        };
+        };*/
 
     }
 
-    fetchUser = (event) => {
+    /*fetchUser = (event) => {
 
         const that = this;
         fetch('/api/user')
@@ -38,16 +43,17 @@ class GetUserInfo extends Component {
             logger.log('parsing failed', ex);
         });
         event.preventDefault();
-    };
+    };*/
 
+    // TODO: Just pass the props along
     render() {
         return (
             <div className="App">
 
                 <ShowUserInfo
-                    fields={fieldDefinitions}
-                    gitUser={this.state.gitUser}
-                    onChange={this.fetchUser}
+                    fields={this.props.fields}
+                    gitUser={this.props.gitUser}
+                    onChange={this.props.onChange}
                     />
 
             </div>
@@ -56,3 +62,11 @@ class GetUserInfo extends Component {
 }
 
 export default GetUserInfo;
+
+/*
+ <ShowUserInfo
+ fields={fieldDefinitions}
+ gitUser={this.state.gitUser}
+ onChange={this.fetchUser}
+ />
+ */

@@ -5,6 +5,7 @@ import 'whatwg-fetch';
 //var fetch = require('../mocks').fetch;
 import Logger from './ElfLogger';
 const logger = new Logger('data-maven', 'blue', 'yellow', '24px');
+
 class ShowNewGist extends Component {
     constructor() {
         super();

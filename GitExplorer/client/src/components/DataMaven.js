@@ -9,12 +9,13 @@ import SmallNumbers from './SmallNumbers';
 import GetFoo from './GetFoo';
 import ShowNewGist from './ShowNewGist';
 import numbersInit from '../numbers-data';
-import fieldDefinitions from '../../../git-convert/field-definitions';
+import fieldDefinitions from '../field-definitions';
 const logger = new Logger('show-new-gist', 'blue', 'yellow', '24px');
 import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
+
 class DataMaven extends Component {
     constructor() {
         super();
@@ -30,57 +31,56 @@ class DataMaven extends Component {
             }
 
         };
-        this.getUser = this.getUser.bind(this);
-        this.fetchGist = this.fetchGist.bind(this);
+
+        // TODO: You don't need to bind because you are still using arrow syntax
+        //this.getUser = this.getUser.bind(this);
+        //this.fetchGist = this.fetchGist.bind(this);
         logger.log('GetUserInfo constructor called');
     };
 
+    fetchUser = (event) => {
 
+        const that = this;
+        fetch('/api/user')
+            .then(function(response) {
+                return response.json();
+            }).then(function(json) {
+            logger.log('parsed json', json);
+            // TODO: Don't parse it, and just pass it on.
+            const gitUser = json.body;
+            that.setState({
+                gitUser: gitUser
+            });
 
-fetchUser = (event) => {
-
-    const that = this;
-    fetch('/api/user')
-        .then(function(response) {
-            return response.json();
-        }).then(function(json) {
-        logger.log('parsed json', json);
-        const gitUser = JSON.parse(json.body);
-        that.setState({
-            gitUser: gitUser
+            var body = JSON.parse(json.body);
+            that.setState({gitUser: body});
+        }).catch(function(ex) {
+            logger.log('parsing failed', ex);
         });
+        event.preventDefault();
+    };
 
-        var body = JSON.parse(json.body);
-        that.setState({gitUser: body});
-    }).catch(function(ex) {
-        logger.log('parsing failed', ex);
-    });
-    event.preventDefault();
-};
-
-
-fetchGist = (event) => {
-    logger.log('fetch gist called');
-    const that = this;
-    fetch('/api/gist-test')
-        .then(function(response) {
-            return response.json();
-        }).then(function(json) {
-        const gitGist = json.result;
-        that.setState({
-            gitUser: gitGist
+    fetchGist = (event) => {
+        logger.log('fetch gist called');
+        const that = this;
+        fetch('/api/gist-test')
+            .then(function(response) {
+                return response.json();
+            }).then(function(json) {
+            const gitGist = json.result;
+            that.setState({
+                gitUser: gitGist
+            });
+            /*var body = JSON.parse(json.body);
+             that.setState({gitUser: body});*/
+        }).catch(function(ex) {
+            logger.log('parsing failed', ex);
         });
-        /*var body = JSON.parse(json.body);
-         that.setState({gitUser: body});*/
-    }).catch(function(ex) {
-        logger.log('parsing failed', ex);
-    });
-    event.preventDefault();
-};
+        event.preventDefault();
+    };
 
-
-render() {
-    logger.log('DATA MAVEN RENDER');
+    render() {
+        logger.log('DATA MAVEN RENDER');
 
         return (
 

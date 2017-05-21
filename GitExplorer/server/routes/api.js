@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var GitHub = require('github-api');
+
 /* GET home page. */
 router.get('/foo', function(req, response, next) {
     var message = {
@@ -13,10 +14,10 @@ router.get('/foo', function(req, response, next) {
     response.send(message);
 });
 
-
 router.get('/user', function(req, res, next) {
-    var options = {
-        url: 'https://github.com/Krnas/isit322-nasu-2017.git',
+    const options = {
+        // TODO: Get the URL right.
+        url: 'https://api.github.com/users/Krnas',
         headers: {
             'User-Agent': 'request'
         }
@@ -29,7 +30,8 @@ router.get('/user', function(req, res, next) {
         console.log('statusCode:', response && response.statusCode);
         // Print the HTML for the Google homepage.
         console.log('body:', body);
-        res.send({error: error, response: response, body: body});
+        // TODO: Use status
+        res.status(200).send({error: error, response: response, body: body});
     });
 
 });
