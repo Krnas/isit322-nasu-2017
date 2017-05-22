@@ -1,3 +1,6 @@
+import Logger from './ElfLogger';
+const logger = new Logger('address', 'blue', 'yellow', '24px');
+logger.log('Hello logger', 'param two', 'param three');
 const ElfLogger = class {
 
     constructor(loggerInit, colorInit, bgInit, fontSizeInit) {
@@ -24,9 +27,13 @@ const ElfLogger = class {
         if (process.env.REACT_APP_ELF_LOGGER) {
             const envs = process.env.REACT_APP_ELF_LOGGER.split(';');
             if (envs.indexOf(this.logger) > -1) {
-                console.info('%c %s: %c %s %s %s',
+                if (process.title === 'browser') {
+                    console.info('%c %s: %c %s %s %s',
                     this.titleStyle, this.logger, this.textStyle,
                     message1, message2, message3);
+                    } else {
+                    console.log(this.logger, message1, message2, message3);
+                    }
             }
         }
     }

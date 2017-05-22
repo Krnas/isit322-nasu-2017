@@ -3,23 +3,26 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ShowUserInfo from './ShowUserInfo';
-import fieldDefinitions from '../../../git-convert/field-definitions';
+import fieldDefinitions from '../field-definitions';
+import ElfLogger from './ElfLogger';
+const logger = new ElfLogger(false);
 //var fetch = require('../mocks').fetch;
 
 class GetUserInfo extends Component {
     constructor() {
-        super();
-        const tempGitUser = {};
+        super(props);
+        console.log(this.props);
+        /*const tempGitUser = {};
         for (let field of fieldDefinitions) {
             tempGitUser[field.id] = field.sample;
         }
         this.state = {
             gitUser: tempGitUser
-        };
+        };*/
 
     }
 
-    fetchUser = (event) => {
+    /*fetchUser = (event) => {
 
         const that = this;
         fetch('/api/user')
@@ -38,16 +41,16 @@ class GetUserInfo extends Component {
             logger.log('parsing failed', ex);
         });
         event.preventDefault();
-    };
+    };*/
 
     render() {
         return (
             <div className="App">
 
                 <ShowUserInfo
-                    fields={fieldDefinitions}
-                    gitUser={this.state.gitUser}
-                    onChange={this.fetchUser}
+                    fields={this.props.fields}
+                    gitUser={this.props.gitUser}
+                    onChange={this.props.onChange}
                     />
 
             </div>

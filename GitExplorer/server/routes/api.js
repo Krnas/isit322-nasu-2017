@@ -3,6 +3,7 @@ var router = express.Router();
 var request = require('request');
 var GitHub = require('github-api');
 /* GET home page. */
+
 router.get('/foo', function(req, response, next) {
     var message = {
         'result': 'success',
@@ -13,10 +14,9 @@ router.get('/foo', function(req, response, next) {
     response.send(message);
 });
 
-
 router.get('/user', function(req, res, next) {
-    var options = {
-        url: 'https://github.com/Krnas/isit322-nasu-2017.git',
+    const options = {
+        url: 'https://api.github.com/users/Krnas',
         headers: {
             'User-Agent': 'request'
         }
@@ -29,7 +29,7 @@ router.get('/user', function(req, res, next) {
         console.log('statusCode:', response && response.statusCode);
         // Print the HTML for the Google homepage.
         console.log('body:', body);
-        res.send({error: error, response: response, body: body});
+        res.status(200).send({error: error, response: response, body: body});
     });
 
 });
@@ -59,8 +59,8 @@ router.get('/gist-test', function (request, response) {
         public: true,
         description: 'My first gist',
         files: {
-            "file1.txt": {
-                content: "Aren't three gists great!"
+            'file1.txt': {
+                content: 'Arent three gists great!'
             }
         }
     }).then(function({data}) {
@@ -72,12 +72,11 @@ router.get('/gist-test', function (request, response) {
         console.log('Retrieved', retrievedGist);
         response.status(200).send({'result': retrievedGist});
         // do interesting things
-    }).catch(function (err) {
-        console.log('Promise rejected',err);
+    }).catch(function(err) {
+        console.log('Promise rejected', err);
         console.log('Bar', bar);
         response.status(500).send({'result': err});
     });
 });
-
 
 module.exports = router;
