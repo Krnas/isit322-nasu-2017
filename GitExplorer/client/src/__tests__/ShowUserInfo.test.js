@@ -2,7 +2,7 @@ import React from 'react';
 
 import {mount} from 'enzyme';
 import ShowUserInfo from '../components/ShowUserInfo';
-import fieldDefinitions from '../../../git-convert/field-definitions';
+import fieldDefinitions from '../field-definitions';
 const elfDebug = new ElfDebug(true);
 
 describe('My get user info test', function() {

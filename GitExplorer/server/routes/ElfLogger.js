@@ -36,4 +36,4 @@ const ElfLogger = class {
     };
 };
 
-export default ElfLogger;
+module.exports = ElfLogger;

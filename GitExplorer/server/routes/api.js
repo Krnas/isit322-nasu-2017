@@ -39,10 +39,7 @@ let getGitHub = function() {
     return gh;
 };
 
-router.get('/gist-test', function (request, response) {
-
-
-// unauthenticated client
+router.get('/gist-test', function(request, response) {
     const gh = new getGitHub();
     let gist = gh.getGist(); // not a gist yet
     gist.create({
@@ -69,4 +66,4 @@ router.get('/gist-test', function (request, response) {
     });
 });
 
-module.exports = router();
+module.exports = router;

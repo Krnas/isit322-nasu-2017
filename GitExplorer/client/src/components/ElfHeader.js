@@ -17,7 +17,8 @@ class ElfHeader extends Component {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/get-foo">BarFoo</Link></li>
                             <li><Link to="/get-numbers">Numbers</Link></li>
-                            <li><Link to="/show-new-gist">Gist</Link></li>
+                            <li><Link to="/show-new-gist">Create Gist</Link></li>
+                            <li><Link to='/get-gist-lists'>GetGist List</Link></li>
                         </ul>
                         <div className="App-header">
                             <img src={logo} className="App-logo" alt="logo"/>

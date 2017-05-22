@@ -15,4 +15,5 @@ describe('My rest basic test', function() {
 
     });
 
-})();
+});
+

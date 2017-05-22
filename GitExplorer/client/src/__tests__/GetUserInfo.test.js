@@ -44,4 +44,5 @@ describe('My get user info test', function() {
     it('renders default login data', () => {
         getDefault('avatar_url', 'aiunknown');
     });
-})();
+});
+

@@ -36,4 +36,4 @@ describe('My rest basic test', function() {
         expect(wrapper.containsMatchingElement(eightSign)).toEqual(true);
     });
 
-})();
+});

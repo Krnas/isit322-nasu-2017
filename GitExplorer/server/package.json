@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "karma start",
+    "test": "REACT_APP_ELF_LOGGER='testbasic' nodemon jasmine-runner.js",
+    "test-karma": "karma start",
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
@@ -17,7 +18,6 @@
     "request": "^2.81.0",
     "serve-favicon": "~2.4.2"
   },
-
   "devDependencies": {
     "grunt": "~1.0.1",
     "grunt-contrib-clean": "^1.0.0",
@@ -29,13 +29,16 @@
     "grunt-jscs": "^3.0.1",
     "grunt-karma": "^2.0.0",
     "grunt-shell": "^2.1.0",
+    "jasmine": "^2.6.0",
     "jasmine-core": "^2.5.2",
     "jasmine-jquery": "^2.1.1",
+    "jasmine-spec-reporter": "^4.1.0",
     "jshint-stylish": "^2.2.1",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "~1.0.2",
     "karma-phantomjs-launcher": "^1.0.2",
-    "karma-spec-reporter": "~0.0.26"
+    "karma-spec-reporter": "~0.0.26",
+    "supertest": "^3.0.0"
   }
 }

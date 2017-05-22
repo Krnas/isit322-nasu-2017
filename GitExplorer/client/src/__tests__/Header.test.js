@@ -18,4 +18,4 @@ describe('My header test', function() {
 
     });
 
-})();
+});

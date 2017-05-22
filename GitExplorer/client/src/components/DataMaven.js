@@ -4,12 +4,13 @@ import '../css/App.css';
 import 'whatwg-fetch';
 import GetUserInfo from './GetUserInfo';
 import ElfHeader from './ElfHeader';
-import Logger from './ElfLogger';
+import Logger from '../../../server/routes/ElfLogger';
 import SmallNumbers from './SmallNumbers';
 import GetFoo from './GetFoo';
+import GistLister from './GistLister';
 import ShowNewGist from './ShowNewGist';
 import numbersInit from '../numbers-data';
-import fieldDefinitions from '../../../git-convert/field-definitions';
+import fieldDefinitions from '../field-definitions';
 const logger = new Logger('show-new-gist', 'blue', 'yellow', '24px');
 import {
     BrowserRouter as Router,
@@ -27,7 +28,8 @@ class DataMaven extends Component {
             getGist: {
                 url: 'url-qux',
                 description: 'description-qux'
-            }
+            },
+            gistList: [{'html_url': 'foo'}]
 
         };
         this.getUser = this.getUser.bind(this);
@@ -78,7 +80,24 @@ fetchGist = (event) => {
     event.preventDefault();
 };
 
+    fetchGistLists = (event) => {
 
+        const that = this;
+        fetch('/gitapi/gists/get-basic-list')
+            .then(function(response) {
+                return response.json();
+            }).then(function(json) {
+            const gistList = json.result;
+            that.setState({
+                gitList: gistList
+            });
+            /*var body = JSON.parse(json.body);
+             that.setState({gitUser: body});*/
+        }).catch(function(ex) {
+            logger.log('parsing failed', ex);
+        });
+        event.preventDefault();
+    };
 render() {
     logger.log('DATA MAVEN RENDER');
 
@@ -103,6 +122,14 @@ render() {
                                             fetchGist={this.fetchGist}
                                />
                            )}
+                           <Route path='/get-gist-lists'
+                           render={(props) => (
+                               <GistLister {...props}
+                               gistList={this.state.gistList}
+                               fetchGistList={this.fetchGistLists}
+                               />
+                           )}
+                           />
                     />
                     <Route path='/get-numbers'
                            render={(props) => (

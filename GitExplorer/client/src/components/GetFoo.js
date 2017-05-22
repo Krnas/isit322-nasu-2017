@@ -47,7 +47,7 @@ class GetFoo extends Component {
                     state.file: {this.state.file}
                 </p>
 
-                <button className='getFoo' onClick={this.props.fetchGist}>get Foo</button>
+                <button className='getFoo' onClick={this.props.getFoo}>get Foo</button>
 
             </div>
         );
