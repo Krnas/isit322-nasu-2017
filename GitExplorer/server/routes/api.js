@@ -5,8 +5,8 @@ var GitHub = require('github-api');
 /* GET home page. */
 
 router.get('/user', function(req, res, next) {
-    var options = {
-        url: 'https://github.com/Krnas/isit322-nasu-2017.git',
+    const options = {
+        url: 'https://api.github.com/users/Krnas',
         headers: {
             'User-Agent': 'request'
         }
@@ -19,7 +19,7 @@ router.get('/user', function(req, res, next) {
         console.log('statusCode:', response && response.statusCode);
         // Print the HTML for the Google homepage.
         console.log('body:', body);
-        res.send({error: error, response: response, body: body});
+        res.status(200).send({error: error, response: response, body: body});
     });
 
 });

@@ -45,4 +45,3 @@ describe('My get user info test', function() {
         getDefault('avatar_url', 'aiunknown');
     });
 });
-

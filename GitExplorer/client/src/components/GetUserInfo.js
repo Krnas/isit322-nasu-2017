@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ShowUserInfo from './ShowUserInfo';
-import fieldDefinitions from '/../git-convert/field-definitions';
+import fieldDefinitions from '../field-definitions';
+
 //var fetch = require('../mocks').fetch;
 
 class GetUserInfo extends Component {
@@ -45,9 +46,9 @@ class GetUserInfo extends Component {
             <div className="App">
 
                 <ShowUserInfo
-                    fields={fieldDefinitions}
-                    gitUser={this.state.gitUser}
-                    onChange={this.fetchUser}
+                    fields={this.props.fields}
+                    gitUser={this.props.gitUser}
+                    onChange={this.props.onChange}
                     />
 
             </div>
