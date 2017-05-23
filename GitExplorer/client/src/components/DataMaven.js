@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import '../css/App.css';
 import 'whatwg-fetch';
 import GetUserInfo from './GetUserInfo';
@@ -76,6 +75,7 @@ class DataMaven extends Component {
         }).catch(function(ex) {
             logger.log('parsing failed', ex);
         });
+    };
 
         fetchGistLists = (event) => {
 
@@ -119,6 +119,7 @@ class DataMaven extends Component {
                                                 fetchGist={this.fetchGist}
                                    />
                                )}
+                               />
                         <Route path='/get-gist-lists'
                                render={(props) => (
                                    <GistLister {...props}
@@ -138,7 +139,8 @@ class DataMaven extends Component {
 
                 </Router>
         )
-        }
-        }
+            }
+            
+            }
         export default DataMaven;
 

@@ -13,6 +13,17 @@ describe('My rest basic test', function() {
         const ninep = wrapper.find('p').last().debug();
         console.log(ninep);
     };
+    fit('renders DataMaven state.eight', () => {
+        const wrapper = mount(
+            <MemoryRouter initialEntries={['/get-numbers']}>
+                <DataMaven />
+            </MemoryRouter>
+        );
+        elfDebug.getAll(wrapper);
+        const eightSign = <p className='App-intro'>state.eight: 0</p>;
+        expect(wrapper.contains(eightSign)).toEqual(true);
+    });
+
     it('renders initial value of paragraph with state.nine', () => {
         const wrapper = shallow(<SmallNumbers/>);
         const nineSign = <p className='App-intro'>state.nine: 0</p>;
