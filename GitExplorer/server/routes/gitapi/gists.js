@@ -36,8 +36,10 @@ router.get('/get-basic-list', function(request, response, next) {
         const results = data.map((item) => ({
             'html_url': item.html_url,
             'id': item.id,
-            'git_pull_url': item.git_pull_url,
-            'description': item.description
+            'gitPullUrl': item.git_pull_url,
+            'description': item.description,
+            'ownerLogin': item.owner.login,
+            'avatarUrl': item.owner.avatarUrl
         }));
         response.status(200).send({
             'count': results.length,

@@ -25,12 +25,14 @@ class DataMaven extends Component {
         this.state = {
             gitUser: tempGitUser,
             getGist: {
-                url: 'url-qux',
-                description: 'description-qux'
+                url: 'url',
+                description: 'description'
             },
-            gistList: [{'html_url': 'foo'}]
+            gistCanIterate: false,
+            gistList: [{'htmlUrl': 'foo'}]
 
         };
+
         //this.getUser = this.getUser.bind(this);
         //this.fetchGist = this.fetchGist.bind(this);
         logger.log('GetUserInfo constructor called');
@@ -77,70 +79,72 @@ class DataMaven extends Component {
         });
     };
 
-        fetchGistLists = (event) => {
+    fetchGistLists = (event) => {
 
-            const that = this;
-            fetch('/gitapi/gists/get-basic-list')
-                .then(function(response) {
-                    return response.json();
-                }).then(function(json) {
-                const gistList = json.result;
-                that.setState({
-                    gitList: gistList
-                });
-                /*var body = JSON.parse(json.body);
-                 that.setState({gitUser: body});*/
-            }).catch(function(ex) {
-                logger.log('parsing failed', ex);
+        const that = this;
+        fetch('/gitapi/gists/get-basic-list')
+            .then(function(response) {
+                return response.json();
+            }).then(function(json) {
+            const gistList = json.result;
+            that.setState({
+                gitList: gistList
             });
-            event.preventDefault();
-        };
-        render() {
-            logger.log('DATA MAVEN RENDER');
+            /*var body = JSON.parse(json.body);
+             that.setState({gitUser: body});*/
+        }).catch(function(ex) {
+            logger.log('parsing failed', ex);
+        });
+        event.preventDefault();
+    };
 
-            return (
+    render() {
+        logger.log('DATA MAVEN RENDER');
 
-                <Router>
-                    <div>
-                        <ElfHeader/>
-                        <Route exact path='/'
-                               render={(props) => (
-                                   <GetUserInfo {...props}
-                                                fields={fieldDefinitions}
-                                                gitUser={this.state.gitUser}
-                                                onChange={this.fetchUser}/>
-                               )}
-                        />
-                        <Route path='/get-foo' component={GetFoo}/>
-                        <Route path='/show-new-gist'
-                               render={(props) => (
-                                   <ShowNewGist {...props}
-                                                gitGist={this.state.gitGist}
-                                                fetchGist={this.fetchGist}
-                                   />
-                               )}
+        return (
+
+            <Router>
+                <div className="container">
+                    <ElfHeader/>
+                    <Route exact path='/'
+                           render={(props) => (
+                               <GetUserInfo {...props}
+                                            fields={fieldDefinitions}
+                                            gitUser={this.state.gitUser}
+                                            onChange={this.fetchUser}/>
+                           )}
+                    />
+                    <Route path='/get-foo' component={GetFoo}/>
+                    <Route path='/show-new-gist'
+                           render={(props) => (
+                               <ShowNewGist {...props}
+                                            gitGist={this.state.gitGist}
+                                            fetchGist={this.fetchGist}
                                />
-                        <Route path='/get-gist-lists'
-                               render={(props) => (
-                                   <GistLister {...props}
-                                               gistList={this.state.gistList}
-                                               fetchGistList={this.fetchGistLists}
-                                   />
-                               )}
-                        />
-                        <Route path='/get-numbers'
-                               render={(props) => (
-                                   <SmallNumbers {...props}
-                                                 numbers={numbersInit}
-                                   />
-                               )}
+                           )}
+                    />
+                    <Route path='/get-gist-lists'
+                           render={(props) => (
+                               <GistLister {...props}
+                                           gistCanIterate={this.state.gistCanIterate}
+                                           gistList={this.state.gistList}
+                                           fetchGistList={this.fetchGistLists}
                                />
-                    </div>
+                           )}
+                    />
+                    <Route path='/get-numbers'
+                           render={(props) => (
+                               <SmallNumbers {...props}
+                                             numbers={numbersInit}
+                               />
+                           )}
+                    />
+                </div>
 
-                </Router>
+            </Router>
         )
-            }
-            
-            }
-        export default DataMaven;
+    }
+
+}
+export default DataMaven;
 
