@@ -34,6 +34,7 @@ const ElfLogger = class {
             }
         }
     }
+
     setLogger(newValue) {
         this.logger = newValue;
     };

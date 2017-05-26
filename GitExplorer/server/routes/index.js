@@ -4,12 +4,11 @@ var debug = require('debug')('git-convert');
 debug('this is a test');
 const Logger = require('../routes/ElfLogger');
 var logger = new Logger('routes-index');
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+
 
 router.get('/', function(req, res, next) {
     'use strict';
-    res.render('index', {title: 'server'});
+    res.sendFile('index.html');
 });
 router.get('/foo', function(req, response, next) {
     const message = {
