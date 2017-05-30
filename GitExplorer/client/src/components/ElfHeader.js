@@ -3,7 +3,7 @@ import logo from '../images/25452.svg';
 import {  Jumbotron } from 'react-bootstrap';
 import { MenuItem, Nav, Navbar, NavDropdown, NavItem   } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Button } from 'react-bootstrap';
+
 
 class ElfHeader extends Component {
 
@@ -37,11 +37,11 @@ class ElfHeader extends Component {
             </Navbar>
 
         );
-        return (
+        /*return (
             <div>
                 {navbarInstance}
             </div>
-        );
+        );*/
         return (
 
                     <div className="App">
@@ -52,8 +52,6 @@ class ElfHeader extends Component {
                             <h2>Welcome to React</h2>
                             </Jumbotron>
                         </div>
-
-                    
 
         );
     }

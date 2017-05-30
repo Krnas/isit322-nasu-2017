@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var debug = require('debug')('git-convert');
+
 debug('this is a test');
 const Logger = require('../routes/ElfLogger');
 var logger = new Logger('routes-index');
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+const requester = new require('request');
 
 router.get('/', function(req, res, next) {
     'use strict';
@@ -20,5 +19,17 @@ router.get('/foo', function(req, response, next) {
     logger.log('Foo called on server:', message);
     response.status(200).send(message);
 });
+router.get('/users/get-user', function(request, response, next) {
+    requester('http://localhost:30026/get-user').pipe(response);
+});
 
+router.get('/bar', function(request, response, next) {
+    response.send({'result': 'success from 30026'});
+});
+
+router.get('/bar/:id', function(request, response, next) {
+    response.send({
+        'result': 'success bar slash from 30026'
+    });
+});
 module.exports = router;

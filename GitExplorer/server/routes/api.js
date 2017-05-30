@@ -4,25 +4,6 @@ var request = require('request');
 var GitHub = require('github-api');
 /* GET home page. */
 
-router.get('/user', function(req, res, next) {
-    const options = {
-        url: 'https://api.github.com/users/Krnas',
-        headers: {
-            'User-Agent': 'request'
-        }
-    };
-
-    request(options, function(error, response, body) {
-        // Print the error if one occurred
-        console.log('error:', error);
-        // Print the response status code if a response was received
-        console.log('statusCode:', response && response.statusCode);
-        // Print the HTML for the Google homepage.
-        console.log('body:', body);
-        res.status(200).send({error: error, response: response, body: body});
-    });
-
-});
 
 let getGitHub = function() {
     let gh;

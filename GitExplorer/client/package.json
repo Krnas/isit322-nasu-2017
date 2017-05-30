@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:30026",
+  "proxy": "http://localhost:30025",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "enzyme": "^2.8.2",
