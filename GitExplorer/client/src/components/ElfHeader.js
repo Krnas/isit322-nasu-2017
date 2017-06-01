@@ -4,7 +4,6 @@ import {  Jumbotron } from 'react-bootstrap';
 import { MenuItem, Nav, Navbar, NavDropdown, NavItem   } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-
 class ElfHeader extends Component {
 
     render() {

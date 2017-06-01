@@ -31,6 +31,10 @@ class GistLister extends Component {
             });
         }
     }
+    gistDelete() {
+        const id = this.props.gistList[this.state.index].id;
+        this.props.gistDelete(id, () => {});
+    }
     render() {
         return (
             <div className="App">
@@ -40,16 +44,24 @@ class GistLister extends Component {
                 <Button bsStyle='primary' id='prevGist' onClick={this.gistIterator} disabled={!this.props.gistIterator}>Prev Gist</Button>
                 <Button className='success' onClick={this.gistIterator} disabled={this.props.gistCanIterate}>Prev Gist</Button>
                 <Button className='nextGist' onClick={this.gistIterator} disabled={this.props.gistCanIterate}>Next Gist</Button>
+                <Button className='deleteGist' onClick={this.Delete} disabled={this.props.gistDelete}>Delete Gist</Button>
                 <h3>Gist at {this.state.index + 1} / {this.props.gistList.length}</h3>
 
                 <ul className="elf-ul">
 
                     <li>Index: {this.state.index} / {this.props.gistList.length -1}</li>
                     <li>{this.props.gistList[this.state.index].description}</li>
-                    <li>{this.props.gistList}[this.state.index].url</li>
-                    <li>{this.props.gistList[this.state.index].htmlUrl}</li>
+                    <li>
+                        <a
+                        target='_new'
+                        href={this.props.gistList[this.state.index].htmlUrl}>
+                            {this.props.gistList[this.state.index].htmlUrl}
+                        </a>
+                    </li>
+
                     <li>{this.props.gistList[this.state.index].id}</li>
                     <li>{this.props.gistList[this.state.index].ownerLogin}</li>
+                    <li>{this.props.gistList[this.state.index].files.join()}</li>
 
                 </ul>
                 <img className='elfImage' alt='avatar' src={this.props.gistList[0].avatarUrl} />

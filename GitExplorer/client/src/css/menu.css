@@ -1,4 +1,4 @@
-/*.elfImage {
+.elfImage {
     width: 200px;
     height: 200px;
 }
@@ -25,4 +25,4 @@ ul.elfMenu {
 
 .elfMenu li a:hover {
     background-color: #985f0d;
-}*/
+}
