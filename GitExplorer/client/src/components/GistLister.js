@@ -44,10 +44,16 @@ class GistLister extends Component {
 
                     <li>Index: {this.state.index} / {this.props.gistList.length -1}</li>
                     <li>{this.props.gistList[this.state.index].description}</li>
-                    <li><a target='_new' href={this.props.gistList[this.state.index].htmlUrl>{this.props.gistList}}</li>
-                    <li>{this.props.gistList[this.state.index].htmlUrl}</li>
+                    <li><a
+                    target='_new'
+                    href={this.props.gistList[this.state.index].htmlUrl}>
+                        {this.props.gistList[this.state.index].htmlUrl}
+                    </a>
+                    </li>
+
                     <li>{this.props.gistList[this.state.index].id}</li>
                     <li>{this.props.gistList[this.state.index].ownerLogin}</li>
+                    <li>{this.props.gistList[this.state.index].files.join()}</li>
 
                 </ul>
                 <img className='elfImage' alt='avatar' src={this.props.gistList[0].avatarUrl} />

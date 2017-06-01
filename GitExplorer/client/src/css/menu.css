@@ -1,28 +1,24 @@
-/*.elfImage {
-    width: 200px;
-    height: 200px;
-}
-
-ul.elfMenu {
-    background-color: #8a6d3b;
+.App.ul {
     list-style-type: none;
     margin: 0;
-    overflow: hidden;
     padding: 0;
+    overflow: hidden;
+    background-color: coral;
 }
 
-.elfMenu li {
+.App.li {
     float: left;
 }
 
-.elfMenu li a {
-    color: white;
+.App.li a {
     display: block;
-    padding: 5px 15px;
+    color: white;
     text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
 }
 
-.elfMenu li a:hover {
-    background-color: #985f0d;
-}*/
+/* Change the link color to #111 (black) on hover */
+.App.li a:hover {
+    background-color: #111;
+}
