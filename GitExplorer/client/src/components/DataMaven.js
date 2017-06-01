@@ -42,7 +42,7 @@ class DataMaven extends Component {
     fetchUser = (event) => {
 
         const that = this;
-        fetch('/api/user')
+        fetch('/api/users')
             .then(function(response) {
                 return response.json();
             }).then(function(json) {
@@ -98,12 +98,18 @@ class DataMaven extends Component {
         event.preventDefault();
     };
 
+    gistDelete(param, callback) {
+        var url='/gitapi/gists/delete?gistId=' + param;
+        return fetch(url)
+            .then((res) => res.json())
+            .then((json) => console.log(json))
+            console.log(json);
+        callback(json);
+    };
     render() {
         logger.log('DATA MAVEN RENDER');
 
         return (
-
-            <Router>
                 <div className="container">
                     <ElfHeader/>
                     <Route exact path='/'
@@ -141,7 +147,6 @@ class DataMaven extends Component {
                     />
                 </div>
 
-            </Router>
         )
     }
 

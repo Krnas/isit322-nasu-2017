@@ -31,6 +31,10 @@ class GistLister extends Component {
             });
         }
     }
+    gistDelete() {
+        const id = this.props.gistList[this.state.index].id;
+        this.props.gistDelete(id, () => {});
+    }
     render() {
         return (
             <div className="App">
@@ -45,8 +49,8 @@ class GistLister extends Component {
                     <li>Index: {this.state.index} / {this.props.gistList.length -1}</li>
                     <li>{this.props.gistList[this.state.index].description}</li>
                     <li><a
-                    target='_new'
-                    href={this.props.gistList[this.state.index].htmlUrl}>
+                        target='_new'
+                        href={this.props.gistList[this.state.index].htmlUrl}>
                         {this.props.gistList[this.state.index].htmlUrl}
                     </a>
                     </li>

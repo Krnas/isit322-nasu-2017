@@ -52,8 +52,6 @@ class ElfHeader extends Component {
                             </Jumbotron>
                         </div>
 
-                    
-
         );
     }
 }
