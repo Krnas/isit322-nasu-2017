@@ -11,11 +11,14 @@ import {createStore} from 'redux';
 
 let store = createStore(spokesman)
 ReactDOM.render(
-    <div>
-        <Provider store={store}/>
+   <div>
+        <Provider store={store}>
         <div>
-        <App />
-        <FakeRedux/>
+            <App store={store}/>
+            <FakeRedux/>
         </div>
-    </div>, document.getElementById('root'));
+        </Provider>
+   </div>,
+
+    document.getElementById('root'));
 registerServiceWorker();

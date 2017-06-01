@@ -15,18 +15,6 @@ class FakeRedux extends Component {
         this.setState( (prevState) => spokesman(prevState, action));
     }
 
-    verifyStatement = () => {
-        this.dispatch({ type: 'VERIFY' });
-    };
-
-    denyEverything = () => {
-        this.dispatch({ type: 'DENY' });
-    };
-
-    noComment = () => {
-        this.dispatch({ type: 'NO COMMENT' });
-    };
-
     render() {
         return (
             <div>
