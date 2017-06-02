@@ -38,6 +38,7 @@ router.get('/get-basic-list', function(request, response, next) {
             'id': item.id,
             'gitPullUrl': item.git_pull_url,
             'description': item.description,
+            'login': 'octocat',
             'ownerLogin': item.owner.login,
             'avatarUrl': item.owner.avatarUrl,
             'files': Object.keys(item.files)
@@ -83,5 +84,5 @@ router.get('/delete', function(request, response, next) {
     let gitHub = getGitHub();
     gist = gitHub.getGist(gistId);
     logger.log('Git ')
-})
+});
 module.exports = router;

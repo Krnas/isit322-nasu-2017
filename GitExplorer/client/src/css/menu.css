@@ -1,24 +1,23 @@
-.App.ul {
+ul.menu {
+    background-color: #8a6d3b;
     list-style-type: none;
     margin: 0;
-    padding: 0;
     overflow: hidden;
-    background-color: coral;
+    padding: 0;
 }
 
-.App.li {
+li.menu {
     float: left;
 }
 
-.App.li a {
-    display: block;
+li.menu a {
     color: white;
+    display: block;
+    padding: 5px 15px;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
-.App.li a:hover {
-    background-color: #111;
+li.menu  a:hover {
+    background-color: #985f0d;
 }
