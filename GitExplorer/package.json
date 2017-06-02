@@ -15,7 +15,7 @@
     "micro-first": "babel-node ../microtest/micro-first/bin/www",
     "micro-second": "babel-node ../microtest/micro-second/bin/www",
     "lint": "eslint ."
-    
+
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",

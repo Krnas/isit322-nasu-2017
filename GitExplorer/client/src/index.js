@@ -11,3 +11,4 @@ ReactDOM.render(
     </div>,
   document.getElementById('root')
 );
+res.sendFile('index.html');

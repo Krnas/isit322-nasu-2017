@@ -9,10 +9,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/micro-first', function(request, response, next) {
+    'use strict';
     requester('http://localhost:30026/you-rang').pipe(response);
 });
 
 router.get('/micro-second', function(request, response, next) {
+    'use strict';
     requester('http://localhost:30027/you-rang').pipe(response);
 });
 module.exports = router;

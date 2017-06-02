@@ -82,6 +82,11 @@ router.get('/delete', function(request, response, next) {
     logger.log('Gist ID: ', gistId);
     let gitHub = getGitHub();
     gist = gitHub.getGist(gistId);
-    logger.log('Git ')
-})
+    gist.delete().then(function({data}) {
+        logger.log('DELETE PROMISE', data);
+        response.status(200).send({
+            'result': 'success',
+        });
+    });
+});
 module.exports = router;

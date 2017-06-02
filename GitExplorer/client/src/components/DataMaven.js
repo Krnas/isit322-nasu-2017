@@ -99,10 +99,10 @@ class DataMaven extends Component {
     };
 
     gistDelete(param, callback) {
-        var url='/gitapi/gists/delete?gistId=' + param;
+        const url='/gitapi/gists/delete?gistId=' + param;
         return fetch(url)
             .then((res) => res.json())
-            .then((json) => console.log(json))
+            .then((json) => console.log(json));
             console.log(json);
         callback(json);
     };
