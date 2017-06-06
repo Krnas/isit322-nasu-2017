@@ -4,11 +4,11 @@ import {connect} from 'react-redux';
 
 
 //class AppConnect extends Component {
-let AppConnect = ({dispatch, statement, kind, verifyStatement, denyEverything, noComment}) => {
+let AppConnect = ({statement, kind, verifyStatement, denyEverything, noComment}) => {
 
     return (
         <div className="App">
-            <div className="App-intro">
+            <div className="App-header">
                 <h2>welcome to react</h2>
             </div>
 
@@ -25,6 +25,24 @@ let AppConnect = ({dispatch, statement, kind, verifyStatement, denyEverything, n
     );
 
 };
-
+const mapStateToProps = (state) => {
+    return {
+        statement: state.statement,
+        kind: state.kind
+    }
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deny: () => {
+            dispatch({type: 'DENY'})
+        },
+        verify: () => {
+            dispatch({type: 'VERIFY'})
+        },
+        noComment: () => {
+            dispatch({type: 'NO COMMENT'})
+        }
+    }
+};
 AppConnect = connect(mapStateToProps, mapDispatchToProps)(AppConnect);
 export default AppConnect;
