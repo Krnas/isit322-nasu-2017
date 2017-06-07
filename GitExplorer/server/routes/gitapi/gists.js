@@ -85,7 +85,7 @@ router.get('/delete', function(request, response, next) {
     gist.delete().then(function({data}) {
         logger.log('DELETE PROMISE', data);
         response.status(200).send({
-            'result': 'success',
+            'result': 'success'
         });
     });
 });

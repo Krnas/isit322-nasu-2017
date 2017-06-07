@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 //var fetch = require('../mocks').fetch;
-
+import {connect} from 'react-redux'
 class GetFoo extends Component {
     constructor() {
         super();
@@ -21,30 +21,15 @@ class GetFoo extends Component {
         }
     };
 
-    getFoo = () => {
-        const that = this;
-        fetch('/api/foo')
-            .then(function (response) {
-
-                return response.json();
-            }).then(function (json) {
-            console.log(json);
-            //const foobar = JSON.parse(json);
-            that.setState(foo => (json));
-        }).catch(function (ex) {
-            console.log('parsing failed', ex);
-        });
-    };
-
     render() {
         return (
             <div className="App">
 
                 <p className="App-intro">
-                    state.foo: {this.state.foo}
+                    state.foo: {this.props.foo}
                 </p>
                 <p className="App-intro">
-                    state.file: {this.state.file}
+                    state.file: {this.props.file}
                 </p>
 
                 <button className='getFoo' onClick={this.props.getFoo}>get Foo</button>
@@ -53,5 +38,40 @@ class GetFoo extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+       foo:state.getFoo.foo,
+        file: state.getFoo.file
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        /*getBar: () => {
+            dispatch({
+                type: 'GETFOO',
+                getFoo: {
+                    foo: 'url-mock-bar',
+                    file: 'url-mock-api.js'
+                }
+            });
+        },*/
+        getFoo: () => {
+            fetch('/foo')
+                .then(function(response) {
+                    return response.json();
+                }).then(function(json) {
+                dispatch({
+                    type: 'GETFOO',
+                    getFoo: json
+                });
+            }).catch(function(ex) {
+                console.log('parsing failed', ex);
+            });
+
+        }
+    };
+};
+GetFoo = connect(mapStateToProps, mapDispatchToProps)(GetFoo);
 
 export default GetFoo;

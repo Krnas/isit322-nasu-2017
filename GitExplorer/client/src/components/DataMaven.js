@@ -8,7 +8,7 @@ import SmallNumbers from './SmallNumbers';
 import GetFoo from './GetFoo';
 import GistLister from './GistLister';
 import ShowNewGist from './ShowNewGist';
-import numbersInit from '../numbers-data';
+
 import fieldDefinitions from '../field-definitions';
 const logger = new Logger('show-new-gist', 'blue', 'yellow', '24px');
 import {
@@ -138,11 +138,8 @@ class DataMaven extends Component {
                                />
                            )}
                     />
-                    <Route path='/get-numbers'
-                           render={(props) => (
-                               <SmallNumbers {...props}
-                                             numbers={numbersInit}
-                               />
+                    <Route path='/get-numbers' component={SmallNumbers} />
+
                            )}
                     />
                 </div>
@@ -152,4 +149,9 @@ class DataMaven extends Component {
 
 }
 export default DataMaven;
+/*<Route path='/get-numbers'
+ render={(props) => (
+ <SmallNumbers {...props}
+ numbers={numbersInit}
+ />*/
 

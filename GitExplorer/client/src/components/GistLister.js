@@ -42,8 +42,7 @@ class GistLister extends Component {
 
                 <Button bsStyle='info' id='gistList' onClick={this.props.fetchGistLists} disabled={this.props.gistCanIterate}>Get GistList</Button>
                 <Button bsStyle='primary' id='prevGist' onClick={this.gistIterator} disabled={!this.props.gistIterator}>Prev Gist</Button>
-                <Button className='success' onClick={this.gistIterator} disabled={this.props.gistCanIterate}>Prev Gist</Button>
-                <Button className='nextGist' onClick={this.gistIterator} disabled={this.props.gistCanIterate}>Next Gist</Button>
+                <Button bsStyle='success' id='nextGist' onClick={this.gistIterator} disabled={!this.props.gistCanIterate}>Next Gist</Button>
                 <Button className='deleteGist' onClick={this.Delete} disabled={this.props.gistDelete}>Delete Gist</Button>
                 <h3>Gist at {this.state.index + 1} / {this.props.gistList.length}</h3>
 
