@@ -7,7 +7,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GistLister from '../components/GistLister';
-import ElfDebug from '../ElfDebug';
+import ElfDebug from '../assets/ElfDebug';
 const elfDebug = new ElfDebug(true, 'GistLister.test.js');
 import {shallow} from 'enzyme';
 

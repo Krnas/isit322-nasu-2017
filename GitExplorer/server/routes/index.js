@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 debug('this is a test');
+import ElfDebug from '/ElfDebug';
+const elfDebug = new ElfDebug(false, 'route index');
 const Logger = require('../routes/ElfLogger');
 var logger = new Logger('routes-index');
 const requester = new require('request');

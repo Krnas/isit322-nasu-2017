@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ElfHeader from '../components/ElfHeader';
 import {mount} from 'enzyme';
-import ElfEnzymeDebug from '/ElfDebug';
-const elfEnzymeDebug = new ElfEnzymeDebug(false, 'header test');
+import ElfDebug from '/ElfDebug';
+const elfDebug = new ElfDebug(false, 'header test');
 import { BrowserRouter as Router } from 'react-router-dom';
-import ElfLogger from '/ElfLogger';
+import ElfLogger from '../assets/ElfLogger';
 const elfLogger = new ElfLogger('header-test');
 
 describe('My Header tests', function() {

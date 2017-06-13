@@ -1,6 +1,3 @@
-/**
- * Created by bcuser on 6/13/17.
- */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DataMaven from '../components/DataMaven';
@@ -9,8 +6,8 @@ import GetFoo from '../components/GetFoo';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import gistReducer from '/gist-reducer';
-import ElfDebugEnzyme from '/ElfDebug';
+import gistReducer from '../assets/gist-reducer';
+import ElfDebugEnzyme from '../assets/ElfDebug';
 const elfDebug = new ElfDebugEnzyme(false, 'GetFoo.test.js');
 
 jest.mock('whatwg-fetch');
@@ -62,3 +59,4 @@ describe('My GetFoo Tests', function() {
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 });
+

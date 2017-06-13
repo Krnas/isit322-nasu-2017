@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
 import DataMaven from '../components/DataMaven';
-import ElfDebug from '../ElfDebug';
+import ElfDebug from '../assets/ElfDebug';
 const elfDebug = new ElfDebug(false);
 
 describe('My get user info test', function() {
