@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 //var fetch = require('../mocks').fetch;
-import Logger from './ElfLogger';
+import Logger from '../assets/ElfLogger';
 const logger = new Logger('data-maven', 'blue', 'yellow', '24px');
 class ShowNewGist extends Component {
     constructor() {

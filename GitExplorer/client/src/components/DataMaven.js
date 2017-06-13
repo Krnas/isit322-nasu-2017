@@ -4,7 +4,7 @@ import '../css/App.css';
 import 'whatwg-fetch';
 import GetUserInfo from './GetUserInfo';
 import ElfHeader from './ElfHeader';
-import Logger from './ElfLogger';
+import Logger from '../assets/ElfLogger';
 import SmallNumbers from './SmallNumbers';
 import GetFoo from './GetFoo';
 import ShowNewGist from './ShowNewGist';
