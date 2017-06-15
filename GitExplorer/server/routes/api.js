@@ -73,9 +73,11 @@ router.get('/gist-test', function (request, response) {
         response.status(200).send({'result': retrievedGist});
         // do interesting things
     }).catch(function(err) {
-        console.log('Promise rejected', err);
-        console.log('Bar', bar);
-        response.status(500).send({'result': err});
+        console.log('Promise rejected', Object.keys(err));
+        console.log('Promise rejected', err.response.status, err.response.data.message);
+        // TODO: Bar is not defined
+        //console.log('Bar', bar);
+        response.status(500).send({'result': 'error', 'status-text': err.response.status});
     });
 });
 

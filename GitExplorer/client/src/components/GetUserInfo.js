@@ -9,7 +9,8 @@ const logger = new ElfLogger(false);
 //var fetch = require('../mocks').fetch;
 
 class GetUserInfo extends Component {
-    constructor() {
+    // TODO: Pass props to both constructor and super
+    constructor(props) {
         super(props);
         console.log(this.props);
         /*const tempGitUser = {};

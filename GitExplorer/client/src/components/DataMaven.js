@@ -24,7 +24,8 @@ class DataMaven extends Component {
         }
         this.state = {
             gitUser: tempGitUser,
-            getGist: {
+            // TODO: Write gitGist, not getGist
+            gitGist: {
                 url: 'url-qux',
                 description: 'description-qux'
             }
@@ -48,36 +49,44 @@ class DataMaven extends Component {
             that.setState({
                 gitUser: gitUser
             });
-                var body = JSON.parse(json.body);
+            var body = JSON.parse(json.body);
             that.setState({gitUser: body});
-        }).
-            catch(function(ex) {
-                logger.log('parsing failed', ex);
-            });
-            event.preventDefault();
-        };
-
-    fetchGist = (event) => {
-                logger.log('fetch gist called');
-                const that = this;
-                fetch('/api/gist-test')
-                    .then(function(response) {
-                            return response.json();
-                        }).then(function(json) {
-                        const gitGist = json.result;
-                        that.setState({
-                                gitUser: gitGist
-                        });
-                        /*var body = JSON.parse(json.body);
-                          that.setState({gitUser: body});*/
-                        }).catch(function(ex) {
-                        logger.log('parsing failed', ex);
+        }).catch(function(ex) {
+            logger.log('parsing failed', ex);
         });
         event.preventDefault();
-            };
+    };
 
-render() {
-    logger.log('DATA MAVEN RENDER');
+    fetchGist = (event) => {
+        logger.log('fetch gist called');
+        //alert('fetchGist blows up on the server side, can you see why?');
+        const that = this;
+        fetch('/api/gist-test')
+            .then(function(response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    // TODO: Proper response
+                    throw new Error(response.statusText + '\n' +
+                        response.url + '\n' +
+                        'status: ' + response.status);
+                }
+            }).then(function(json) {
+            const gitGist = json.result;
+            that.setState({
+                gitUser: gitGist
+            });
+            /*var body = JSON.parse(json.body);
+             that.setState({gitUser: body});*/
+        }).catch(function(ex) {
+            alert(ex);
+            logger.log('parsing failed', ex);
+        });
+        event.preventDefault();
+    };
+
+    render() {
+        logger.log('DATA MAVEN RENDER');
 
         return (
 

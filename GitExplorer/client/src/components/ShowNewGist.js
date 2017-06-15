@@ -7,8 +7,9 @@ import Logger from './ElfLogger';
 const logger = new Logger('data-maven', 'blue', 'yellow', '24px');
 
 class ShowNewGist extends Component {
-    constructor() {
-        super();
+    // TODO Pass props for fetchGists
+    constructor(props) {
+        super(props);
        logger.log('show new gist called');
     }
 
@@ -19,6 +20,7 @@ class ShowNewGist extends Component {
     };
 
     render() {
+        // TODO: It's this.props.fetchGists
         return (
             <div className="App">
 
@@ -29,7 +31,7 @@ class ShowNewGist extends Component {
                     Description: {this.props.gitGist.description}
                 </p>
 
-                <button className='getFoo' onClick={this.getFoo}>get Foo</button>
+                <button className='getFoo' onClick={this.props.fetchGist}>get Foo</button>
 
             </div>
         );

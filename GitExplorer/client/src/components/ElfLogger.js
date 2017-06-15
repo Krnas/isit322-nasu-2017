@@ -1,6 +1,8 @@
-import Logger from './ElfLogger';
-const logger = new Logger('address', 'blue', 'yellow', '24px');
-logger.log('Hello logger', 'param two', 'param three');
+// THESE LINES DON'T MAKE SENSE HERE. THIS IS THE ELFLOGGER CLASS.
+//import Logger from './ElfLogger';
+//const logger = new Logger('address', 'blue', 'yellow', '24px');
+//logger.log('Hello logger', 'param two', 'param three');
+
 const ElfLogger = class {
 
     constructor(loggerInit, colorInit, bgInit, fontSizeInit) {
