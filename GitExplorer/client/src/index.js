@@ -17,4 +17,4 @@ ReactDOM.render(
         </Provider>
     </div>,
     document.getElementById('root'));
-res.sendFile('index.html');
+

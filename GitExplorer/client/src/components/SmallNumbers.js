@@ -4,18 +4,11 @@ import '../css/App.css';
 import {connect} from 'react-redux';
 
 class SmallNumbers extends Component {
-    constructor() {
-        super();
-        this.state = {
-            nine: '0',
-            eight: '0'
-        };
-        /*constructor(props) {
-         super(props);
-         this.state = {
-         nine: this.props.numbers.nine,
-         eight: this.props.numbers.eight
-         };*/
+    constructor(props) {
+        super(props);
+        logger.log('SmallNumber props', this.props);
+        this.getNine = this.getNine.bind(this);
+        this.getEight = this.getEight.bind(this);
     }
 
     getNine() {

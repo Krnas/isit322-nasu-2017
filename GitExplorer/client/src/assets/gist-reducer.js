@@ -27,13 +27,11 @@ const gistReducer = (state = gistState, action) => {
                 }
             });
 
-        case 'GET FOO':
-            return Object.assign({}, state,  {
-                getFoo: action.getFoo
-            });
-        default:
-            return state;
+        case 'GETFOO':
+                    return Object.assign({}, state, {getFoo: action.getFoo});
+                    etc
+
     }
-};
+    };
 
 export default gistReducer;
