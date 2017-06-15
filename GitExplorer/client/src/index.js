@@ -8,13 +8,13 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import gistReducer from './assets/gist-reducer';
 let store = createStore(gistReducer);
-ReactDOM.render(
+RReactDOM.render(
     <div>
         <Provider store={store}>
-
+            <Router>
                 <DataMaven/>
-
+            </Router>
         </Provider>
     </div>,
-    document.getElementById('root'));
-
+    document.getElementById('root')
+);
