@@ -8,7 +8,7 @@ const logger = new Logger('data-maven', 'blue', 'yellow', '24px');
 class ShowNewGist extends Component {
     constructor() {
         super();
-       logger.log('show new gist called');
+        logger.log('show new gist called');
     }
 
     debug = (message) => {

@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 //var fetch = require('../mocks').fetch;
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 class GetFoo extends Component {
     constructor() {
         super();
@@ -40,7 +40,7 @@ class GetFoo extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-       foo:state.getFoo.foo,
+        foo:state.getFoo.foo,
         file: state.getFoo.file
     };
 };
@@ -61,13 +61,13 @@ const mapDispatchToProps = (dispatch) => {
                 .then(function(response) {
                     return response.json();
                 }).then(function(json) {
-                dispatch({
-                    type: 'GETFOO',
-                    getFoo: json
-                });
-            }).catch(function(ex) {
-                console.log('parsing failed', ex);
-            });
+                    dispatch({
+            type: 'GETFOO',
+            getFoo: json
+        });
+                }).catch(function(ex) {
+            console.log('parsing failed', ex);
+        });
 
         }
     };

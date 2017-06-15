@@ -21,7 +21,7 @@ class GistLister extends Component {
         if (event.target.id === 'nextGist') {
             this.setState((prevState, props) => {
                 if (prevState.index < props.gistList.length -1) {
-                    return {index: prevState.index + 1}
+                    return {index: prevState.index + 1};
                 }
 
             });
@@ -66,7 +66,7 @@ class GistLister extends Component {
                 <img className='elfImage' alt='avatar' src={this.props.gistList[0].avatarUrl} />
 
             </div>
-        )
+        );
     }
 }
 

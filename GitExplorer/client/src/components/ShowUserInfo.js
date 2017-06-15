@@ -10,7 +10,7 @@ class ShowUserInfo extends Component {
     constructor(props) {
         super(props);
         if (!this.props.gitUser) {
-            throw new Error("No user data");
+            throw new Error('No user data');
         }
     }
 
@@ -23,7 +23,7 @@ class ShowUserInfo extends Component {
                              onChange={this.props.onChange}
                 />
             </div>
-        )
+        );
     };
 
     render() {
@@ -32,7 +32,7 @@ class ShowUserInfo extends Component {
 
             <form className="Form">{
                 this.props.fields.map((field, index) => {
-                    return this.getForm(field, index)
+                    return this.getForm(field, index);
                 })
             }
                 <button className="getUser" onClick={this.props.onChange}>get Git User</button>

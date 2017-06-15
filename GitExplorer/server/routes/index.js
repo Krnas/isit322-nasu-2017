@@ -6,6 +6,34 @@ const Logger = require('../routes/ElfLogger');
 var logger = new Logger('routes-index');
 const requester = new require('request');
 
+const microIndex = 1;
+
+const microFirst = [
+    'http://localhost:30027',
+    'https://micro-first.herokuapp.com'
+];
+const microSecond = [
+    'http://localhost:30027',
+    'https://micro-second.herokuapp.com'
+];
+const microThird = [
+    'http://localhost:30027',
+    'https://micro-Third.herokuapp.com'
+];
+let sayMicroFirst = function() {
+    console.log('MicroFirst:', microThird[microIndex]);
+};
+router.get('/micro-first/you-rang', function(request, response, next) {
+    sayMicroFirst();
+    requester(microThird[microIndex] + '/you-rang').pipe(response);
+});
+let sayMicroSecond = function() {
+    console.log('MicroSecond:', microThird[microIndex]);
+};
+router.get('/micro-second/you-rang', function(request, response, next) {
+    sayMicroSecond();
+    requester(microThird[microIndex] + '/you-rang').pipe(response);
+});
 router.get('/', function(req, res, next) {
     'use strict';
     res.render('index', {title: 'server'});

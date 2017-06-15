@@ -1,3 +1,6 @@
+/**
+ * Created by bcuser on 6/13/17.
+ */
 const ElfLogger = class {
 
     constructor(loggerInit, colorInit, bgInit, fontSizeInit) {
@@ -24,19 +27,14 @@ const ElfLogger = class {
         if (process.env.REACT_APP_ELF_LOGGER) {
             const envs = process.env.REACT_APP_ELF_LOGGER.split(';');
             if (envs.indexOf(this.logger) > -1) {
-                if (process.title === 'browser') {
-                    console.info('%c %s: %c %s %s %s',
-                        this.titleStyle, this.logger, this.textStyle,
-                        message1, message2, message3);
-                } else {
-                    console.log(this.logger, message1, message2, message3);
-                }
+                console.info(this.logger, message1, message2, message3);
             }
         }
     }
+
     setLogger(newValue) {
         this.logger = newValue;
-    }
+    };
 };
 
-module.exports = ElfLogger;
+export default ElfLogger;

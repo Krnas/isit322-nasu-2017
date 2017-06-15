@@ -20,11 +20,11 @@ class SmallNumbers extends Component {
 
     getNine() {
         this.props.dispatch({type: 'NUMBER_NINE'});
-    };
+    }
 
     getEight() {
         this.props.dispatch({type: 'NUMBER_EIGHT'});
-    };
+    }
 
     render() {
         return (

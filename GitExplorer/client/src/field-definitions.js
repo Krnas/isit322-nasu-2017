@@ -41,4 +41,4 @@ export default [
         sample: 'followersUrl' + unknown
     },
 
-]
+];

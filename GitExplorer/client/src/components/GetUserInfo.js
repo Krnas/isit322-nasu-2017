@@ -28,14 +28,14 @@ class GetUserInfo extends Component {
             .then(function (response) {
                 return response.json();
             }).then(function (json) {
-            logger.log('parsed json', json);
-            const gitUser = JSON.parse(json.body);
-            that.setState({
+                logger.log('parsed json', json);
+                const gitUser = JSON.parse(json.body);
+                that.setState({
                 gitUser: gitUser
             });
 
-            var body = JSON.parse(json.body);
-            that.setState({gitUser: body});
+                var body = JSON.parse(json.body);
+                that.setState({gitUser: body});
         }).catch(function (ex) {
             logger.log('parsing failed', ex);
         });
