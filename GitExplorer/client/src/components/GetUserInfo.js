@@ -31,14 +31,14 @@ class GetUserInfo extends Component {
                 logger.log('parsed json', json);
                 const gitUser = JSON.parse(json.body);
                 that.setState({
-                gitUser: gitUser
-            });
+                    gitUser: gitUser
+                });
 
                 var body = JSON.parse(json.body);
                 that.setState({gitUser: body});
-        }).catch(function (ex) {
-            logger.log('parsing failed', ex);
-        });
+            }).catch(function (ex) {
+                logger.log('parsing failed', ex);
+            });
         event.preventDefault();
     };
 

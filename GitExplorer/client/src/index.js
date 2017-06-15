@@ -7,12 +7,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
-import gistReducer from './gist-reducer';
+import gistReducer from './assets/gist-reducer';
 
 const middlewares = [];
 
-if (process.env.NODE_ENV === `development`) {
-    const {createLogger} = require(`react-redux`);
+if (process.env.NODE_ENV === 'development') {
+    const {createLogger} = require('react-redux');
     const logger = createLogger({
         collapsed: (getState, action, logEntry) => !logEntry.error
     });

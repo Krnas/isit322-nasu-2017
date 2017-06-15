@@ -24,7 +24,7 @@ class DataMaven extends Component {
         }
         this.state = {
             gitUser: tempGitUser,
-            getGist: {
+            gitGist: {
                 url: 'url',
                 description: 'description'
             },
@@ -36,7 +36,7 @@ class DataMaven extends Component {
         //this.getUser = this.getUser.bind(this);
         //this.fetchGist = this.fetchGist.bind(this);
         logger.log('GetUserInfo constructor called');
-    };
+    }
 
 
     fetchUser = (event) => {
@@ -46,17 +46,17 @@ class DataMaven extends Component {
             .then(function(response) {
                 return response.json();
             }).then(function(json) {
-            logger.log('parsed json', json);
-            const gitUser = json.body;
-            that.setState({
-                gitUser: gitUser
-            });
+                logger.log('parsed json', json);
+                const gitUser = json.body;
+                that.setState({
+                    gitUser: gitUser
+                });
 
-            var body = JSON.parse(json.body);
-            that.setState({gitUser: body});
-        }).catch(function(ex) {
-            logger.log('parsing failed', ex);
-        });
+                var body = JSON.parse(json.body);
+                that.setState({gitUser: body});
+            }).catch(function(ex) {
+                logger.log('parsing failed', ex);
+            });
         event.preventDefault();
     };
 
@@ -68,15 +68,14 @@ class DataMaven extends Component {
             .then(function(response) {
                 return response.json();
             }).then(function(json) {
-            const gitGist = json.result;
-            that.setState({
-                gitUser: gitGist
+                const gitGist = json.result;
+                that.setState({
+                    gitUser: gitGist
+                });
+
+            }).catch(function(ex) {
+                logger.log('parsing failed', ex);
             });
-            /*var body = JSON.parse(json.body);
-             that.setState({gitUser: body});*/
-        }).catch(function(ex) {
-            logger.log('parsing failed', ex);
-        });
     };
 
     fetchGistLists = (event) => {
@@ -86,33 +85,34 @@ class DataMaven extends Component {
             .then(function(response) {
                 return response.json();
             }).then(function(json) {
-            const gistList = json.result;
-            that.setState({
-                gitList: gistList
-            });
+                const gistList = json.result;
+                that.setState({
+                    gitList: gistList
+                });
             /*var body = JSON.parse(json.body);
              that.setState({gitUser: body});*/
-        }).catch(function(ex) {
-            logger.log('parsing failed', ex);
-        });
+            }).catch(function(ex) {
+                logger.log('parsing failed', ex);
+            });
         event.preventDefault();
     };
 
     gistDelete(param, callback) {
         const url='/gitapi/gists/delete?gistId=' + param;
-        return fetch(url)
+        return (fetch(url)
             .then((res) => res.json())
-            .then((json) => console.log(json));
-            console.log(json);
-        callback(json);
-    };
+            .then((json) => console.log(json))
+
+        );
+
+    }
     render() {
         logger.log('DATA MAVEN RENDER');
 
         return (
                 <div className="container">
                     <ElfHeader/>
-                    <Route exact path='/'
+                    <Router exact path='/'
                            render={(props) => (
                                <GetUserInfo {...props}
                                             fields={fieldDefinitions}
@@ -120,8 +120,8 @@ class DataMaven extends Component {
                                             onChange={this.fetchUser}/>
                            )}
                     />
-                    <Route path='/get-foo' component={GetFoo}/>
-                    <Route path='/show-new-gist'
+                    <Router path='/get-foo' component={GetFoo}/>
+                    <Router path='/show-new-gist'
                            render={(props) => (
                                <ShowNewGist {...props}
                                             gitGist={this.state.gitGist}
@@ -129,7 +129,7 @@ class DataMaven extends Component {
                                />
                            )}
                     />
-                    <Route path='/get-gist-lists'
+                    <Router path='/get-gist-lists'
                            render={(props) => (
                                <GistLister {...props}
                                            gistCanIterate={this.state.gistCanIterate}
@@ -144,7 +144,7 @@ class DataMaven extends Component {
                     />
                 </div>
 
-        )
+        );
     }
 
 }

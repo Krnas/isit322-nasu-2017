@@ -10,10 +10,10 @@ const gistState = {
 
 const gistReducer = (state = gistState, action) => {
     switch (action.type) {
-        case 'YOU-RANG':
-            return Object.assign({}, state, {youRang: action.youRang});
-        default:
-            return state;
+    case 'YOU-RANG':
+        return Object.assign({}, state, {youRang: action.youRang});
+    default:
+        return state;
     }
 };
 

@@ -42,14 +42,14 @@ class ElfElements extends Component {
             return <textarea {...common} className='ElfFormInput' value={this.props.value}/>;
 
         case 'text': {
-                return <input
+            return <input
                     className='ElfFormInput'
                     id={this.props.id}
                     value={this.props.value}
                     type={this.props.type}
                     onChange={this.props.onChange}
                 />;
-            }
+        }
 
         default:
             return <input {...common} type='text'/>;

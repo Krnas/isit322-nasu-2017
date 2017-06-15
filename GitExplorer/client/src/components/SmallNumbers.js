@@ -2,20 +2,15 @@ import React, {Component} from 'react';
 
 import '../css/App.css';
 import {connect} from 'react-redux';
+import ElfLogger from '../assets/ElfLogger';
+const logger = new ElfLogger('get-foo-connect');
 
-class SmallNumbers extends Component {
-    constructor() {
-        super();
-        this.state = {
-            nine: '0',
-            eight: '0'
-        };
-        /*constructor(props) {
-         super(props);
-         this.state = {
-         nine: this.props.numbers.nine,
-         eight: this.props.numbers.eight
-         };*/
+let SmallNumbers = class SmallNumbers extends Component {
+    constructor(props) {
+        super(props);
+        logger.log('SmallNumber props', this.props);
+        this.getNine = this.getNine.bind(this);
+        this.getEight = this.getEight.bind(this);
     }
 
     getNine() {
@@ -43,7 +38,7 @@ class SmallNumbers extends Component {
             </div>
         );
     }
-}
+};
 const mapStateToProps = (state) => {
     return {
         numbers: state.numbers
