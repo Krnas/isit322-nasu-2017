@@ -12,6 +12,7 @@ class ElfHeader extends Component {
                 <Navbar.Header>
                     <Navbar.Brand>
                         <LinkContainer to='/'><NavItem>Gist Explorer</NavItem></LinkContainer>
+                        <LinkContainer to='/'><NavItem>Micro Services Explorer</NavItem></LinkContainer>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
@@ -20,6 +21,7 @@ class ElfHeader extends Component {
                         <LinkContainer to='/show-new-gist'><NavItem>Show New Gist</NavItem></LinkContainer>
                         <LinkContainer to='/get-gist-lists'><NavItem>Get Gist List</NavItem></LinkContainer>
                         <LinkContainer to='/get-numbers'><NavItem>Get Numbers</NavItem></LinkContainer>
+                        <LinkContainer to='/'><NavItem>You Rang</NavItem></LinkContainer>
                         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                             <MenuItem eventKey={3.1}>Action</MenuItem>
                             <MenuItem eventKey={3.2}>Another action</MenuItem>
@@ -48,6 +50,7 @@ class ElfHeader extends Component {
                             <Jumbotron>
 
                             <h2>Welcome to React</h2>
+                            <h2>Simple Micro Services</h2>
                             </Jumbotron>
                         </div>
 

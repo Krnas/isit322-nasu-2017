@@ -49,6 +49,13 @@ router.get('/', function(req, res, next) {
     'use strict';
     res.render('index', {title: 'server'});
 });
+router.get('/you-rang', function(request, response) {
+    response.status(200).send({
+        result: 'success',
+        message: 'i am the main server, up and running'
+    });
+});
+
 router.get('/foo', function(req, response, next) {
     const message = {
         'result': 'success',
