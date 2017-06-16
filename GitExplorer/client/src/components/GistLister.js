@@ -26,7 +26,7 @@ class GistLister extends Component {
 
             });
         } else {
-            this.setState((prevState, props) => {
+            this.setState((prevState) => {
                 return {index : prevState.index -1};
             });
         }

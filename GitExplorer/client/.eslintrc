@@ -1,14 +1,25 @@
 {
-  "plugins": [ "react" ],
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/react-in-jsx-scope": "error",
     "no-console": "off",
-    "indent": "error",
-    "quotes": ["error", "single"],
-    "linebreak-style": ["error", "unix"],
-    "semi": ["error", "always"]
+    "indent": "off",
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
   },
   "env": {
     "browser": true,
@@ -16,12 +27,13 @@
     "jest": true,
     "node": true
   },
-
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
-    "ecmaFeatures": { "jsx": true }
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "extends": "eslint:recommended"
 }

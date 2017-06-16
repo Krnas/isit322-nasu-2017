@@ -35,7 +35,7 @@ class DataMaven extends Component {
 
         //this.getUser = this.getUser.bind(this);
         //this.fetchGist = this.fetchGist.bind(this);
-        logger.log('GetUserInfo constructor called');
+        logger.log('Getsudo sysctl -p --systemUserInfo constructor called');
     }
 
 
@@ -61,7 +61,7 @@ class DataMaven extends Component {
     };
 
 
-    fetchGist = (event) => {
+    fetchGist = () => {
         logger.log('fetch gist called');
         const that = this;
         fetch('/api/gist-test')
@@ -72,7 +72,6 @@ class DataMaven extends Component {
                 that.setState({
                     gitUser: gitGist
                 });
-
             }).catch(function(ex) {
                 logger.log('parsing failed', ex);
             });
@@ -97,7 +96,7 @@ class DataMaven extends Component {
         event.preventDefault();
     };
 
-    gistDelete(param, callback) {
+    gistDelete(param) {
         const url='/gitapi/gists/delete?gistId=' + param;
         return (fetch(url)
             .then((res) => res.json())
@@ -112,6 +111,7 @@ class DataMaven extends Component {
         return (
                 <div className="container">
                     <ElfHeader/>
+
                     <Router exact path='/'
                            render={(props) => (
                                <GetUserInfo {...props}

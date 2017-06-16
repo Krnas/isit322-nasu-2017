@@ -4,13 +4,13 @@ import '../css/App.css';
 import 'whatwg-fetch';
 import ShowUserInfo from './ShowUserInfo';
 import fieldDefinitions from '../field-definitions';
-import Logger from '../../../server/routes/ElfLogger';
+import Logger from '../assets/ElfLogger';
 const logger = new Logger(true);
 //var fetch = require('../mocks').fetch;
 
 class GetUserInfo extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         const tempGitUser = {};
         for (let field of fieldDefinitions) {
             tempGitUser[field.id] = field.sample;

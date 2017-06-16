@@ -14,7 +14,7 @@ class ShowUserInfo extends Component {
         }
     }
 
-    getForm = (field, index) => {
+    getForm = (field) => {
         return (
             <div className="ElfFormRow" key={field.id}>
                 <label className="ElfFormLabel" htmlFor={field.id}>{field.label}:</label>
