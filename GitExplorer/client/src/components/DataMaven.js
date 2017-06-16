@@ -140,8 +140,6 @@ class DataMaven extends Component {
                     />
                     <Route path='/get-numbers' component={SmallNumbers} />
 
-                           )}
-                    />
                 </div>
 
         );
@@ -149,9 +147,4 @@ class DataMaven extends Component {
 
 }
 export default DataMaven;
-/*<Route path='/get-numbers'
- render={(props) => (
- <SmallNumbers {...props}
- numbers={numbersInit}
- />*/
 

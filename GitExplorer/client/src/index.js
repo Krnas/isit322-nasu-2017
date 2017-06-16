@@ -11,14 +11,6 @@ import gistReducer from './assets/gist-reducer';
 
 const middlewares = [];
 
-if (process.env.NODE_ENV === 'development') {
-    const {createLogger} = require('react-redux');
-    const logger = createLogger({
-        collapsed: (getState, action, logEntry) => !logEntry.error
-    });
-    middlewares.push(logger);
-}
-
 let store = createStore(gistReducer, applyMiddleware(...middlewares));
 
 ReactDOM.render(

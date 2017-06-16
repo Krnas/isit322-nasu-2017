@@ -47,7 +47,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        /*getBar: () => {
+        getBar: () => {
             dispatch({
                 type: 'GETFOO',
                 getFoo: {
@@ -55,7 +55,7 @@ const mapDispatchToProps = (dispatch) => {
                     file: 'url-mock-api.js'
                 }
             });
-        },*/
+        },
         getFoo: () => {
             fetch('/foo')
                 .then(function(response) {

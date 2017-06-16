@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from '../images/25452.svg';
+//import logo from '../images/25452.svg';
 import {  Jumbotron } from 'react-bootstrap';
 import { MenuItem, Nav, Navbar, NavDropdown, NavItem   } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -46,7 +46,6 @@ class ElfHeader extends Component {
                     <div className="App">
                         {navbarInstance}
                             <Jumbotron>
-                            <img src={logo} className="App-logo" alt="logo"/>
 
                             <h2>Welcome to React</h2>
                             </Jumbotron>
@@ -57,3 +56,5 @@ class ElfHeader extends Component {
 }
 
 export default ElfHeader;
+
+// <img src={logo} className="App-logo" alt="logo"/>

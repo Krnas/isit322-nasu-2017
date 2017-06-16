@@ -5,7 +5,6 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 const GitHub = require('github-api');
-//const token = require('../tokens');
 const Logger = require('../ElfLogger');
 const logger = new Logger('gitapi-gists');
 /* GET home page. */
@@ -28,7 +27,7 @@ let getGitHub = function() {
 router.get('/get-basic-list', function(request, response, next) {
     console.log('GET BASIC LIST CALLED');
     let gh = getGitHub();
-    const me = gh.getUser();
+    const me = gh.gitUser();
     console.log('ME', me);
     me.listGists(
     ).then(function({data}) {
@@ -55,7 +54,7 @@ router.get('/get-basic-list', function(request, response, next) {
 
 router.get('/get-gist-list', function(request, response) {
     let gh = getGitHub();
-    const me = gh.getUser();
+    const me = gh.gitUser();
     console.log('ME', me);
     me.listGists(
     ).then(function({gists}) {
@@ -77,16 +76,25 @@ router.get('/get-gist-list', function(request, response) {
 });
 
 router.get('/delete', function(request, response, next) {
-    logger.log('DELETE GIST CALLED', request, query);
+    logger.log('DELETE GIST CALLED', request.query);
+    if (!request.query.gistId) {
+        throw new Error('You must pass a gistID when calling delete');
+    }
     const gistId = request.query.gistId;
-    logger.log('Gist ID: ', gistId);
+    logger.log('GIST ID: ', gistId);
     let gitHub = getGitHub();
-    gist = gitHub.getGist(gistId);
+    gist = gitHub.gitGist(gistId);
+    logger.log('GOT GIST', gist.__apiBase);
     gist.delete().then(function({data}) {
         logger.log('DELETE PROMISE', data);
         response.status(200).send({
-            'result': 'success'
+            'result': 'success',
+            'gistId': gistId,
+            'data': data
         });
+    }).catch(function(err) {
+        logger.log('Promise Rejected', err);
+        response.status(500).send({'result': err});
     });
 });
 module.exports = router;

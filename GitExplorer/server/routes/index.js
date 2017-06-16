@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var debug = require('debug');
 
-debug('this is a test');
 const Logger = require('../routes/ElfLogger');
 var logger = new Logger('routes-index');
 const requester = new require('request');
+debug('this is a test');
+
 
 const microIndex = 1;
 
@@ -21,19 +23,28 @@ const microThird = [
     'https://micro-Third.herokuapp.com'
 ];
 let sayMicroFirst = function() {
-    console.log('MicroFirst:', microThird[microIndex]);
+    console.log('MicroFirst:', microFirst[microIndex]);
 };
 router.get('/micro-first/you-rang', function(request, response, next) {
     sayMicroFirst();
-    requester(microThird[microIndex] + '/you-rang').pipe(response);
+    requester(microFirst[microIndex] + '/you-rang').pipe(response);
 });
 let sayMicroSecond = function() {
-    console.log('MicroSecond:', microThird[microIndex]);
+    console.log('MicroSecond:', microSecond[microIndex]);
 };
 router.get('/micro-second/you-rang', function(request, response, next) {
     sayMicroSecond();
+    requester(microSecond[microIndex] + '/you-rang').pipe(response);
+});
+let sayMicroThird = function() {
+    console.log('MicroThird:', microThird[microIndex]);
+
+};
+router.get('/micro-third/you-rang', function(request, response, next) {
+    sayMicroThird();
     requester(microThird[microIndex] + '/you-rang').pipe(response);
 });
+
 router.get('/', function(req, res, next) {
     'use strict';
     res.render('index', {title: 'server'});
